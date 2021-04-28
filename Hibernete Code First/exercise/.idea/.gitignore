@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# CodeStream ignored files
+/../../exercise\.idea/codestream.xml
+# Datasource local storage ignored files
+/../../../../../../../../../:\Users\lulch\OneDrive\Desktop\SpringData\Hibernete Code First\exercise\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
