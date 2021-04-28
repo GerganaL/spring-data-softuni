@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @Component
 @Slf4j
 public class ConsoleRunner implements CommandLineRunner { // this is pojo
-    //when we use @component become a bean and goes to run
+    //when we use @component become a bean and goes to run like main method
     @Autowired
     private UserService userService;
 
