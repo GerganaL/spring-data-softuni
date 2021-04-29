@@ -1,4 +1,4 @@
-package couurse.springdata.entity;
+package course.springdata.springintroexercise.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

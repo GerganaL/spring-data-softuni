@@ -1,6 +1,5 @@
-package couurse.springdata.entity;
+package course.springdata.springintroexercise.entities;
 
-import couurse.springdata.entity.Shampoo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -10,20 +9,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "ingredients")
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = "labels")
 @Data
-public class Ingredient {
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Label {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
 
-    private String name;
-    private double price;
+    private String title;
+    private String subtitle;
 
     @ToString.Exclude
-    @ManyToMany(mappedBy = "ingredients")
+    @OneToMany(mappedBy = "label")
     private Set<Shampoo> shampoos = new HashSet<>();
-
 }

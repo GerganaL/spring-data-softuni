@@ -1,6 +1,6 @@
-package couurse.springdata.dao;
+package course.springdata.springintroexercise.repositories;
 
-import couurse.springdata.entity.Ingredient;
+import course.springdata.springintroexercise.entities.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
+@Transactional(readOnly = true)
 public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
     List<Ingredient> findByNameIn(Iterable<String> names);
 
@@ -24,5 +25,4 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
     @Query("UPDATE Ingredient i SET i.price = i.price * :percentage WHERE i.name IN :names")
     int updatePriceOfIngredientsInList(@Param("names") Iterable<String> names,
                                        @Param("percentage") double percentage);
-
 }

@@ -17,7 +17,7 @@ public class Label {
     private Long id;
 
     private String title;
-    private String subTitle;
+    private String subtitle;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "label")

@@ -1,6 +1,5 @@
-package couurse.springdata.entity;
+package course.springdata.springintroexercise.entities;
 
-import couurse.springdata.entity.Shampoo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -13,6 +12,7 @@ import java.util.Set;
 @Table(name = "ingredients")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
+
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
