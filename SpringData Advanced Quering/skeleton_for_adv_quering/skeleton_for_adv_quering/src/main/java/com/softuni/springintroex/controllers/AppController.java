@@ -39,7 +39,7 @@ public class AppController implements CommandLineRunner {
        // this.bookService.printAllBooksByAgeRestriction(reader.readLine());
 
 //2.	Golden Books
-        //this.bookService.printAllBooksByEditionTypeAndCopiesLessThan();
+        this.bookService.printAllBooksByEditionTypeAndCopiesLessThan();
 
 //3.	Books by Price
        // this.bookService.printAllBooksByPriceInBounds();
@@ -68,7 +68,7 @@ public class AppController implements CommandLineRunner {
 //        System.out.println(bookByTitle.getPrice());
 
 //12.	* Increase Book Copies
-        this.bookService.printUpdatedCopiesCount(reader.readLine(),Integer.parseInt(reader.readLine()));
+       // this.bookService.printUpdatedCopiesCount(reader.readLine(),Integer.parseInt(reader.readLine()));
 
     }
 }

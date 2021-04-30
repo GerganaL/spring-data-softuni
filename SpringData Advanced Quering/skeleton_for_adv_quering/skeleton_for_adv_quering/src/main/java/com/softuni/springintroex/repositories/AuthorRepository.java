@@ -28,4 +28,6 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
     List<Author> findAllByReleaseDateAfter(LocalDate date);
 
     Set<Author> findAllByFirstNameEndingWith(String start);
+
+
 }
