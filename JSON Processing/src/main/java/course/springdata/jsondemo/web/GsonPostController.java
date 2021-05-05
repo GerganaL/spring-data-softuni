@@ -3,6 +3,7 @@ package course.springdata.jsondemo.web;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import course.springdata.jsondemo.entity.Post;
+import course.springdata.jsondemo.gson.PostGsonSerializer;
 import course.springdata.jsondemo.service.PostService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class GsonPostController {
     private Gson gson = new GsonBuilder()
             .excludeFieldsWithoutExposeAnnotation()
             .setPrettyPrinting()
+            .registerTypeAdapter(Post.class, new PostGsonSerializer())
             .create();
 
     @GetMapping(produces = "application/json")

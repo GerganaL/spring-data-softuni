@@ -1,5 +1,6 @@
 package course.springdata.jsondemo.service;
 
+
 import course.springdata.jsondemo.entity.Post;
 
 import java.util.List;
