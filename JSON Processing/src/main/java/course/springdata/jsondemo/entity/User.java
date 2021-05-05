@@ -10,7 +10,6 @@ import org.hibernate.validator.constraints.URL;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-import static org.hibernate.cfg.AvailableSettings.USER;
 
 @Entity
 @Data
@@ -54,7 +53,7 @@ public class User {
     @NotNull
     @NonNull
     @Enumerated(EnumType.STRING)
-    private String role = USER;
+    private Role role;
 
     @Expose
     @NonNull

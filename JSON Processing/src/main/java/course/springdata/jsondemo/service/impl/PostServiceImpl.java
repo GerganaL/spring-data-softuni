@@ -1,7 +1,9 @@
 package course.springdata.jsondemo.service.impl;
 
 import course.springdata.jsondemo.dao.PostRepository;
+import course.springdata.jsondemo.dao.UserRepository;
 import course.springdata.jsondemo.entity.Post;
+import course.springdata.jsondemo.exception.InvalidEntityDataException;
 import course.springdata.jsondemo.exception.NonExcistingEntityException;
 import course.springdata.jsondemo.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,12 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class PostServiceImpl implements PostService {
     private final PostRepository postRepo;
+    private final UserRepository userRepo;
 
     @Autowired
-    public PostServiceImpl(PostRepository postRepo) {
+    public PostServiceImpl(PostRepository postRepo, UserRepository userRepo) {
         this.postRepo = postRepo;
+        this.userRepo = userRepo;
     }
 
     @Override
@@ -35,6 +39,13 @@ public class PostServiceImpl implements PostService {
     @Override
     public Post addPost(Post post) {
         post.setId(null);
+        if(post.getAuthor() == null){
+            if(post.getAuthorId() == null){
+                throw new InvalidEntityDataException("Post author is required but missing.");
+            }
+            post.setAuthor(userRepo.findById(post.getAuthorId()).orElseThrow(() ->
+                    new InvalidEntityDataException(String.format("Post author with ID:%s does not exist.",post.getAuthorId()))));
+        }
         return postRepo.save(post);
     }
 

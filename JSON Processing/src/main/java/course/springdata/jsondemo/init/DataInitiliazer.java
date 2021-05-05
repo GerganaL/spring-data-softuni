@@ -1,12 +1,17 @@
 package course.springdata.jsondemo.init;
 
 import course.springdata.jsondemo.entity.Post;
+import course.springdata.jsondemo.entity.User;
 import course.springdata.jsondemo.service.PostService;
+import course.springdata.jsondemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
+import static course.springdata.jsondemo.entity.Role.ADMIN;
+import static course.springdata.jsondemo.entity.Role.USER;
 
 @Component
 public class DataInitiliazer implements CommandLineRunner {
@@ -25,18 +30,21 @@ public class DataInitiliazer implements CommandLineRunner {
                     "https://www.publicdomainpictures.net/pictures/20000/velka/baby-lamb.jpg",
                     1L)
     );
-//    private static final List<User> SAMPLE_USERS = List.of(
-//            new User("Default", "Admin", "admin", "admin", ADMIN,
-//                    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/500px-Crystal_Clear_kdm_user_female.svg.png"),
-//            new User("Ivan", "Pertov", "ivan", "ivan123", USER,
-//                    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Crystal_Clear_app_Login_Manager.svg/500px-Crystal_Clear_app_Login_Manager.svg.png")
-//    );
+    private static final List<User> SAMPLE_USERS = List.of(
+            new User("Default", "Admin", "admin", "admin", ADMIN,
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/500px-Crystal_Clear_kdm_user_female.svg.png"),
+            new User("Ivan", "Pertov", "ivan", "ivan123", USER,
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Crystal_Clear_app_Login_Manager.svg/500px-Crystal_Clear_app_Login_Manager.svg.png")
+    );
 
     @Autowired
     private PostService postService;
+    @Autowired
+    private UserService userService;
 
     @Override
     public void run(String... args) throws Exception {
         SAMPLE_POSTS.forEach(postService::addPost);
+        SAMPLE_USERS.forEach(userService::addUser);
     }
 }
