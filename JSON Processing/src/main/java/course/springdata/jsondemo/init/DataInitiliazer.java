@@ -44,7 +44,7 @@ public class DataInitiliazer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        SAMPLE_POSTS.forEach(postService::addPost);
         SAMPLE_USERS.forEach(userService::addUser);
+        SAMPLE_POSTS.forEach(postService::addPost);
     }
 }

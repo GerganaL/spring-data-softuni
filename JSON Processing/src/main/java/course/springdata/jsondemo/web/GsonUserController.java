@@ -2,10 +2,8 @@ package course.springdata.jsondemo.web;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import course.springdata.jsondemo.entity.Post;
-import course.springdata.jsondemo.gson.PostGsonDeserializer;
-import course.springdata.jsondemo.gson.PostGsonSerializer;
-import course.springdata.jsondemo.service.PostService;
+import course.springdata.jsondemo.entity.User;
+import course.springdata.jsondemo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,35 +12,34 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 @RestController
-@RequestMapping("/api/gson/posts")
+@RequestMapping("/api/gson/users")
 @Slf4j
-public class GsonPostController {
+public class GsonUserController {
     @Autowired
-    private PostService postService;
+    private UserService userService;
 
     private Gson gson = new GsonBuilder()
-            .excludeFieldsWithoutExposeAnnotation()
+            //.excludeFieldsWithoutExposeAnnotation()
             .setPrettyPrinting()
-            .registerTypeAdapter(Post.class, new PostGsonSerializer())
-            .registerTypeAdapter(Post.class, new PostGsonDeserializer())
             .create();
 
     @GetMapping(produces = "application/json")
-    public String getPosts() {
-        return gson.toJson(postService.getAllPosts());
+    public String getUsers() {
+        return gson.toJson(userService.getAllUsers());
     }
 
     @GetMapping(path = "/{id}", produces = "application/json")
-    public String getPosts(@PathVariable("id") Long id){
-        return gson.toJson(postService.getPostById(id));
+    public String getUsers(@PathVariable("id") Long id){
+        return gson.toJson(userService.getUserById(id));
     }
 
+
     @PostMapping(produces = "application/json")
-    public ResponseEntity<String> addPost(@RequestBody String body) {
+    public ResponseEntity<String> addUser(@RequestBody String body) {
         log.info("Body recieved: {}", body);
-        Post post = gson.fromJson(body, Post.class);
-        log.info("Post desireliazed: {}", post);
-        Post created = postService.addPost(post);
+        User user = gson.fromJson(body, User.class);
+        log.info("User desireliazed: {}", user);
+        User created = userService.addUser(user);
         return ResponseEntity.created(
                 ServletUriComponentsBuilder.fromCurrentRequest()
                         .pathSegment("{id}")
