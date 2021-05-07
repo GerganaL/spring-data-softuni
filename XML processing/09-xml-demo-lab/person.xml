@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<person id="1">
+    <firstName>Petar</firstName>
+    <lastName>Petrov</lastName>
+    <address id="1">
+        <country>Bulgaria</country>
+        <city>Sofia</city>
+        <street>bul. Tzar Osvoboditel 50</street>
+    </address>
+    <phone-numbers>
+        <phone id="2">
+            <number>+359887256741</number>
+        </phone>
+        <phone id="1">
+            <number>+359894717265</number>
+        </phone>
+    </phone-numbers>
+</person>
