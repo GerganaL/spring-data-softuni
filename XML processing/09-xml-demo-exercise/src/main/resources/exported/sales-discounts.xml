@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sales>
+    <sale>
+        <car make="Mercedes" travelled-distance="9223775807"/>
+        <customer-name>Hai Everton</customer-name>
+        <discount>0.05</discount>
+        <price>236.97</price>
+        <price-with-discount>225.1215</price-with-discount>
+    </sale>
+    <sale>
+        <car make="Opel" travelled-distance="2147483647"/>
+        <customer-name>Jimmy Grossi</customer-name>
+        <discount>0.1</discount>
+        <price>242.88</price>
+        <price-with-discount>218.59199999999998</price-with-discount>
+    </sale>
+    <sale>
+        <car make="Ford" travelled-distance="9223372007"/>
+        <customer-name>Louann Holzworth</customer-name>
+        <discount>0.3</discount>
+        <price>173.88</price>
+        <price-with-discount>121.71600000000001</price-with-discount>
+    </sale>
+    <sale>
+        <car make="Fiat" travelled-distance="21474847"/>
+        <customer-name>Hai Everton</customer-name>
+        <discount>0.05</discount>
+        <price>334.46999999999997</price>
+        <price-with-discount>317.74649999999997</price-with-discount>
+    </sale>
+    <sale>
+        <car make="Nissan" travelled-distance="213647"/>
+        <customer-name>Sylvie Mcelravy</customer-name>
+        <discount>0.1</discount>
+        <price>151.97</price>
+        <price-with-discount>136.773</price-with-discount>
+    </sale>
+    <sale>
+        <car make="Toyota" travelled-distance="922337807"/>
+        <customer-name>Emmitt Benally</customer-name>
+        <discount>0.3</discount>
+        <price>306.97</price>
+        <price-with-discount>214.87900000000002</price-with-discount>
+    </sale>
+</sales>
